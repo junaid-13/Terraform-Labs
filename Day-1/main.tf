@@ -55,7 +55,7 @@ resource "aws_eip" "nat_gateway_eip" {
 }
 
 # Create a NAT Gateway 
-resource "aws_nat_gateway" "nat_gateway" {
+resource "aws_nat_gateway" "nat" {
   depends_on = [aws_subnet.public_subnets]
   allocation_id = aws_eip.nat_gateway_eip.id
   subnet_id = aws_subnet.public_subnets["Public_subnet_1"].id
